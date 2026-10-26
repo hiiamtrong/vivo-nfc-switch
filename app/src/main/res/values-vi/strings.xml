@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Đổi ví NFC</string>
+    <string name="header_sub">Chạm nút ở giữa để đổi nhanh giữa hai ví</string>
+    <string name="banner_no_shizuku">Shizuku chưa chạy. Mở Shizuku và khởi động nó (Wireless debugging), rồi quay lại đây.</string>
+    <string name="btn_open_shizuku">Mở Shizuku</string>
+    <string name="banner_no_permission">Cần cấp quyền Shizuku cho app này để đổi ví.</string>
+    <string name="btn_grant">Cấp quyền Shizuku</string>
+    <string name="idle_no_shizuku">Chưa kết nối Shizuku</string>
+    <string name="idle_no_permission">Chưa cấp quyền</string>
+    <string name="error_fmt">Lỗi: %s</string>
+    <string name="using_fmt">Đang dùng: %s</string>
+    <string name="none">chưa có</string>
+    <string name="hint_pair">Chạm nút ở giữa để đổi sang ví còn lại</string>
+    <string name="hint_outside">Ví này nằm ngoài cặp, chạm nút để về ví thứ nhất</string>
+    <string name="switching">Đang đổi...</string>
+    <string name="settings_header">Cài đặt</string>
+    <string name="slot_first">Ví thứ nhất</string>
+    <string name="slot_second">Ví thứ hai</string>
+    <string name="pick_first">Chọn ví thứ nhất</string>
+    <string name="pick_second">Chọn ví thứ hai</string>
+    <string name="cancel">Huỷ</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="lang_system">Theo hệ thống</string>
+    <string name="lang_vi">Tiếng Việt</string>
+    <string name="lang_en">English</string>
+    <string name="open_system">Mở cài đặt thanh toán của hệ thống</string>
+    <string name="shortcut_hint">Smart Button: gán lối tắt "%1$s" hoặc "%2$s" của app này để đổi ví chỉ bằng một lần bấm.</string>
+    <string name="tile_label">Ví NFC</string>
+    <string name="tile_no_shizuku">Chưa bật Shizuku</string>
+    <string name="tile_error">Lỗi</string>
+    <string name="toast_switched_fmt">Đã chuyển sang %s</string>
+    <string name="toast_failed_fmt">Không đổi được: %s</string>
+    <string name="toast_need_shizuku">Cần bật Shizuku và cấp quyền cho app</string>
+    <string name="shortcut_toggle">Đổi ví NFC</string>
+    <string name="shortcut_toggle_long">Đổi nhanh giữa hai ví NFC</string>
+    <string name="shortcut_open">Mở ví đang dùng</string>
+    <string name="shortcut_open_long">Mở ví NFC đang là mặc định</string>
+    <string name="shortcut_use_fmt">Dùng %s</string>
+</resources>

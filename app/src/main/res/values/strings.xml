@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC Wallet Switch</string>
+    <string name="header_sub">Tap the middle button to switch between your two wallets</string>
+    <string name="banner_no_shizuku">Shizuku is not running. Open Shizuku and start it (Wireless debugging), then come back.</string>
+    <string name="btn_open_shizuku">Open Shizuku</string>
+    <string name="banner_no_permission">Shizuku permission is required to switch wallets.</string>
+    <string name="btn_grant">Grant Shizuku permission</string>
+    <string name="idle_no_shizuku">Shizuku not connected</string>
+    <string name="idle_no_permission">Permission not granted</string>
+    <string name="error_fmt">Error: %s</string>
+    <string name="using_fmt">In use: %s</string>
+    <string name="none">none</string>
+    <string name="hint_pair">Tap the middle button to switch to the other wallet</string>
+    <string name="hint_outside">This wallet is outside the pair, tap the button to go back to the first one</string>
+    <string name="switching">Switching...</string>
+    <string name="settings_header">Settings</string>
+    <string name="slot_first">First wallet</string>
+    <string name="slot_second">Second wallet</string>
+    <string name="pick_first">Choose the first wallet</string>
+    <string name="pick_second">Choose the second wallet</string>
+    <string name="cancel">Cancel</string>
+    <string name="language">Language</string>
+    <string name="lang_system">System default</string>
+    <string name="lang_vi">Tiếng Việt</string>
+    <string name="lang_en">English</string>
+    <string name="open_system">Open system payment settings</string>
+    <string name="shortcut_hint">Smart Button: assign the "%1$s" or "%2$s" shortcut of this app to switch wallets with a single press.</string>
+    <string name="tile_label">NFC wallet</string>
+    <string name="tile_no_shizuku">Shizuku is off</string>
+    <string name="tile_error">Error</string>
+    <string name="toast_switched_fmt">Switched to %s</string>
+    <string name="toast_failed_fmt">Could not switch: %s</string>
+    <string name="toast_need_shizuku">Start Shizuku and grant it to the app</string>
+    <string name="shortcut_toggle">Switch NFC wallet</string>
+    <string name="shortcut_toggle_long">Quickly switch between your two NFC wallets</string>
+    <string name="shortcut_open">Open current wallet</string>
+    <string name="shortcut_open_long">Opens the wallet that is currently your NFC default</string>
+    <string name="shortcut_use_fmt">Use %s</string>
+</resources>

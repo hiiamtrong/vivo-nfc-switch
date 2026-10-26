@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Hai shortcut "Dùng <tên ví>" được MainActivity đăng ký động vì tên ví do người dùng chọn. -->
+    <shortcut
+        android:shortcutId="toggle"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_toggle"
+        android:shortcutLongLabel="@string/shortcut_toggle_long">
+        <intent
+            android:action="com.hiiamtrong.nfcswitch.TOGGLE"
+            android:targetPackage="com.hiiamtrong.nfcswitch"
+            android:targetClass="com.hiiamtrong.nfcswitch.SwitchActivity" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="open"
+        android:enabled="true"
+        android:icon="@drawable/ic_launcher"
+        android:shortcutShortLabel="@string/shortcut_open"
+        android:shortcutLongLabel="@string/shortcut_open_long">
+        <intent
+            android:action="com.hiiamtrong.nfcswitch.OPEN"
+            android:targetPackage="com.hiiamtrong.nfcswitch"
+            android:targetClass="com.hiiamtrong.nfcswitch.SwitchActivity" />
+    </shortcut>
+</shortcuts>
