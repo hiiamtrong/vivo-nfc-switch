@@ -1,8 +1,8 @@
-# NFC Wallet Switch
+# Vivo NFC Switch
 
 [English](README.md) | [Tiếng Việt](README.vi.md)
 
-Switch the default NFC payment wallet on a vivo phone with one tap. Pick any two wallets (for example vivo Wallet and Google Pay) and flip between them from the app, a Quick Settings tile, or the Smart Button.
+Switch the default NFC payment wallet on a **vivo** phone with one tap. It only works on vivo phones running OriginOS. Pick any two wallets (for example vivo Wallet and Google Pay) and flip between them from the app, a Quick Settings tile, or the Smart Button.
 
 Built and tested on the vivo X300 Pro (V2502DA, OriginOS, Android 17).
 
@@ -49,7 +49,7 @@ App / tile / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-holder WALLET 
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-Every push and pull request is built by GitHub Actions (`.github/workflows/build.yml`), and the debug APK is attached to the run as the `nfcswitch-debug-apk` artifact.
+Every push and pull request is built by GitHub Actions (`.github/workflows/build.yml`), and the debug APK is attached to the run as the `vivo-nfc-switch-debug-apk` artifact.
 
 ## Set up
 
@@ -57,7 +57,7 @@ Every push and pull request is built by GitHub Actions (`.github/workflows/build
    ```sh
    ./shizuku.sh
    ```
-2. Open **NFC Wallet Switch**. When it asks, tap **Grant Shizuku permission** and allow it in the Shizuku dialog.
+2. Open **Vivo NFC Switch**. When it asks, tap **Grant Shizuku permission** and allow it in the Shizuku dialog.
 3. In **Settings** inside the app, pick the first and second wallet.
 
 ## Usage

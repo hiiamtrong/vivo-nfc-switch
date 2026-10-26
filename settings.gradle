@@ -4,5 +4,5 @@ pluginManagement {
 dependencyResolutionManagement {
     repositories { google(); mavenCentral() }
 }
-rootProject.name = "nfcswitch"
+rootProject.name = "vivo-nfc-switch"
 include ":app"

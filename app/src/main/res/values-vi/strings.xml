@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Đổi ví NFC</string>
+    <string name="app_name">Đổi ví NFC vivo</string>
     <string name="header_sub">Chạm nút ở giữa để đổi nhanh giữa hai ví</string>
     <string name="banner_no_shizuku">Shizuku chưa chạy. Mở Shizuku và khởi động nó (Wireless debugging), rồi quay lại đây.</string>
     <string name="btn_open_shizuku">Mở Shizuku</string>

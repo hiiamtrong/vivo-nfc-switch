@@ -1,8 +1,8 @@
-# NFC Wallet Switch
+# Vivo NFC Switch
 
 [English](README.md) | [Tiếng Việt](README.vi.md)
 
-Đổi ví NFC thanh toán mặc định trên điện thoại vivo chỉ bằng một chạm. Chọn hai ví bất kỳ (ví dụ vivo Wallet và Google Pay) rồi đổi qua lại từ app, ô Quick Settings hoặc Smart Button.
+Đổi ví NFC thanh toán mặc định trên điện thoại **vivo** chỉ bằng một chạm. Chỉ hoạt động trên điện thoại vivo chạy OriginOS. Chọn hai ví bất kỳ (ví dụ vivo Wallet và Google Pay) rồi đổi qua lại từ app, ô Quick Settings hoặc Smart Button.
 
 Được viết và kiểm tra trên vivo X300 Pro (V2502DA, OriginOS, Android 17).
 
@@ -49,7 +49,7 @@ App / ô Quick Settings / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-h
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-Mỗi lần push và pull request đều được GitHub Actions build (`.github/workflows/build.yml`), APK debug được đính kèm vào lần chạy dưới dạng artifact `nfcswitch-debug-apk`.
+Mỗi lần push và pull request đều được GitHub Actions build (`.github/workflows/build.yml`), APK debug được đính kèm vào lần chạy dưới dạng artifact `vivo-nfc-switch-debug-apk`.
 
 ## Thiết lập
 
@@ -57,7 +57,7 @@ Mỗi lần push và pull request đều được GitHub Actions build (`.github
    ```sh
    ./shizuku.sh
    ```
-2. Mở **NFC Wallet Switch**. Khi app hỏi, bấm **Cấp quyền Shizuku** và chọn cho phép trong hộp thoại của Shizuku.
+2. Mở **Đổi ví NFC vivo**. Khi app hỏi, bấm **Cấp quyền Shizuku** và chọn cho phép trong hộp thoại của Shizuku.
 3. Trong phần **Cài đặt** của app, chọn ví thứ nhất và ví thứ hai.
 
 ## Sử dụng
