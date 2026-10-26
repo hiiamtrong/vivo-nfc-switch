@@ -49,6 +49,8 @@ App / tile / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-holder WALLET 
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
+Every push and pull request is built by GitHub Actions (`.github/workflows/build.yml`), and the debug APK is attached to the run as the `nfcswitch-debug-apk` artifact.
+
 ## Set up
 
 1. Install Shizuku and start it. Either open the Shizuku app and use "Start via Wireless debugging", or connect adb to the phone and run:

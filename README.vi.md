@@ -49,6 +49,8 @@ App / ô Quick Settings / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-h
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
+Mỗi lần push và pull request đều được GitHub Actions build (`.github/workflows/build.yml`), APK debug được đính kèm vào lần chạy dưới dạng artifact `nfcswitch-debug-apk`.
+
 ## Thiết lập
 
 1. Cài Shizuku và khởi động nó. Mở app Shizuku rồi chọn "Start via Wireless debugging", hoặc kết nối adb với điện thoại và chạy:
