@@ -111,6 +111,10 @@ shizuku.sh             bật Shizuku qua adb
 
 Hoan nghênh issue và pull request. Nếu bạn thử trên dòng vivo hoặc phiên bản OriginOS khác, hãy báo model, phiên bản OS và việc đổi ví cùng định tuyến NFC có đổi đúng không.
 
+## Giấy phép
+
+[MIT](LICENSE)
+
 ## Miễn trừ trách nhiệm
 
 Dự án thay đổi mặc định thanh toán của hệ thống bằng đường không chính thức và không liên kết với vivo, Google hay Shizuku. Tự chịu rủi ro khi sử dụng.

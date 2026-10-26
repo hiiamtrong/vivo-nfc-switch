@@ -111,6 +111,10 @@ shizuku.sh             start Shizuku over adb
 
 Issues and pull requests are welcome. If you test on another vivo model or OriginOS version, please report the model, the OS version, and whether the switch and the NFC routing change worked.
 
+## License
+
+[MIT](LICENSE)
+
 ## Disclaimer
 
 This project changes system payment defaults through an unofficial route and is not affiliated with vivo, Google, or Shizuku. Use it at your own risk.
