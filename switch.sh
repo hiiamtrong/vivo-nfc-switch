@@ -1,6 +1,6 @@
 #!/bin/sh
-# Đổi ví NFC mặc định qua adb (role WALLET): vivo Wallet <-> Google Pay. Cần: adb đã kết nối máy.
-# shortcut: chỉ hỗ trợ đúng 2 ví này; muốn thêm ví khác thì sửa VIVO/GOOGLE.
+# Toggle the default NFC wallet over adb (WALLET role): vivo Wallet <-> Google Pay. Needs adb connected to the phone.
+# shortcut: supports exactly these two wallets, edit VIVO/GOOGLE to use others.
 VIVO=com.vivo.wallet
 GOOGLE=com.google.android.gms
 cur=$(adb shell cmd role get-role-holders android.app.role.WALLET | tr -d '\r')

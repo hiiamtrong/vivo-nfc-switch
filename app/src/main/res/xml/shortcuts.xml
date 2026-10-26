@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Hai shortcut "Dùng <tên ví>" được MainActivity đăng ký động vì tên ví do người dùng chọn. -->
+    <!-- The two "Use <wallet name>" shortcuts are published dynamically by MainActivity because the wallets are user-chosen. -->
     <shortcut
         android:shortcutId="toggle"
         android:enabled="true"

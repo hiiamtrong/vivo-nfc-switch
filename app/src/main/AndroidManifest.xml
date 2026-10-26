@@ -3,7 +3,7 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <!-- Android 11+ package visibility: liệt kê ví (service HCE) và lấy icon/nhãn của hai app ví. -->
+    <!-- Android 11+ package visibility: list wallets (HCE services) and read the icon/label of the two wallet apps. -->
     <queries>
         <intent><action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" /></intent>
         <intent><action android:name="android.nfc.cardemulation.action.OFF_HOST_APDU_SERVICE" /></intent>
@@ -26,7 +26,7 @@
             <meta-data android:name="android.app.shortcuts" android:resource="@xml/shortcuts" />
         </activity>
 
-        <!-- Không UI: đích của các shortcut (Smart Button, nhấn giữ icon). Không export: launcher mở qua LauncherApps, app khác thì không. -->
+        <!-- No UI: target of the shortcuts (Smart Button, long-press on the icon). Not exported: the launcher opens it through LauncherApps, other apps cannot. -->
         <activity
             android:name=".SwitchActivity"
             android:exported="false"
@@ -46,7 +46,7 @@
             </intent-filter>
         </service>
 
-        <!-- Shizuku gửi binder cho app qua provider này. -->
+        <!-- Shizuku hands its binder to the app through this provider. -->
         <provider
             android:name="rikka.shizuku.ShizukuProvider"
             android:authorities="${applicationId}.shizuku"

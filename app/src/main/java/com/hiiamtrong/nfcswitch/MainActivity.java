@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
         content = new LinearLayout(this);
         content.setOrientation(LinearLayout.VERTICAL);
         int pad = dp(20);
-        // targetSdk 35 vẽ tràn dưới thanh hệ thống, nên đệm theo insets để nội dung không bị che.
+        // targetSdk 35 draws edge to edge under the system bars, so pad by the insets to keep content visible.
         content.setOnApplyWindowInsetsListener((v, insets) -> {
             Insets bars = insets.getInsets(WindowInsets.Type.systemBars());
             v.setPadding(pad, pad + bars.top, pad, pad + bars.bottom);
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
         refresh();
     }
 
-    // ---- dựng giao diện ----
+    // ---- building the UI ----
 
     private void buildHeader() {
         content.addView(label(getString(R.string.app_name), 28, TEXT, true));
@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
         LinearLayout.LayoutParams card = new LinearLayout.LayoutParams(0, dp(168), 1f);
         stage.addView(cards[0], card);
         LinearLayout.LayoutParams mid = new LinearLayout.LayoutParams(dp(56), dp(56));
-        mid.setMargins(dp(-14), 0, dp(-14), 0); // nút đè lên mép hai thẻ
+        mid.setMargins(dp(-14), 0, dp(-14), 0); // the button overlaps the edges of both cards
         stage.addView(swapButton, mid);
         stage.addView(cards[1], card);
         content.addView(stage);
@@ -205,7 +205,7 @@ public class MainActivity extends Activity {
         content.addView(sys, lp(0, 20, 0, 0));
     }
 
-    // ---- trạng thái ----
+    // ---- state ----
 
     private void refresh() {
         bindCards();
@@ -269,7 +269,7 @@ public class MainActivity extends Activity {
         if (i != null) startActivity(i);
     }
 
-    // ---- đổi ví + animation ----
+    // ---- switching + animation ----
 
     private void swap() {
         if (busy || !Wallet.ready()) return;
@@ -290,7 +290,7 @@ public class MainActivity extends Activity {
             } catch (Exception e) {
                 error = String.valueOf(e.getMessage());
             }
-            long wait = Math.max(0, 600 - (System.currentTimeMillis() - started)); // đủ lâu để mắt kịp thấy vòng xoay
+            long wait = Math.max(0, 600 - (System.currentTimeMillis() - started)); // long enough for the spin to be noticed
             String r = result;
             String err = error;
             swapButton.postDelayed(() -> finishSwap(r, err), wait);
@@ -313,7 +313,7 @@ public class MainActivity extends Activity {
         busy = false;
     }
 
-    // ---- chọn ví cho từng ô ----
+    // ---- choosing the wallet of each slot ----
 
     private void pickWallet(int slot) {
         int otherSlot = 1 - slot;
@@ -339,7 +339,7 @@ public class MainActivity extends Activity {
                 .show();
     }
 
-    // ---- ngôn ngữ ----
+    // ---- language ----
 
     private static final String[] LANG_TAGS = {"", "vi", "en"};
 
@@ -363,7 +363,7 @@ public class MainActivity extends Activity {
                 .setTitle(R.string.language)
                 .setSingleChoiceItems(names, checked, (d, which) -> {
                     d.dismiss();
-                    // Hệ thống tự tạo lại activity với ngôn ngữ mới.
+                    // The system recreates the activity with the new language.
                     getSystemService(LocaleManager.class).setApplicationLocales(
                             LANG_TAGS[which].isEmpty() ? LocaleList.getEmptyLocaleList() : LocaleList.forLanguageTags(LANG_TAGS[which]));
                 })
@@ -371,9 +371,9 @@ public class MainActivity extends Activity {
                 .show();
     }
 
-    // ---- shortcut (Smart Button, nhấn giữ icon) ----
+    // ---- shortcuts (Smart Button, long-press on the icon) ----
 
-    /** Shortcut "Dùng <tên ví>" cho từng ô; shortcut "Đổi ví" tĩnh nằm trong res/xml/shortcuts.xml. */
+    /** "Use <wallet name>" shortcut for each slot; the static "Switch wallet" shortcut lives in res/xml/shortcuts.xml. */
     private void publishShortcuts() {
         List<ShortcutInfo> list = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -389,9 +389,9 @@ public class MainActivity extends Activity {
                 getString(R.string.shortcut_use_fmt, Wallet.name(this, Wallet.slot(this, 0)))));
     }
 
-    // ---- view phụ ----
+    // ---- helper views ----
 
-    /** Thẻ ví: icon + tên, lớp "glow" bật sáng khi ví đang được dùng. */
+    /** Wallet card: icon + name, with a "glow" layer that lights up while the wallet is in use. */
     private final class Card extends FrameLayout {
         private final View glow;
         private final ImageView icon;

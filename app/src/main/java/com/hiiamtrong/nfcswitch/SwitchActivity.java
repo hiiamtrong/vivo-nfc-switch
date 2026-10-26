@@ -7,7 +7,7 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.widget.Toast;
 
-/** Đích không UI của shortcut: đổi ví, rung nhẹ, báo bằng toast rồi đóng. */
+/** No-UI target of the shortcuts: switch the wallet, give a haptic tick, report with a toast, then close. */
 public class SwitchActivity extends Activity {
     static final String ACTION_SLOT_PREFIX = "com.hiiamtrong.nfcswitch.SLOT";
     private static final String ACTION_OPEN = "com.hiiamtrong.nfcswitch.OPEN";
@@ -53,7 +53,7 @@ public class SwitchActivity extends Activity {
         }).start();
     }
 
-    /** Mở app của ví đang là mặc định. */
+    /** Opens the app of the wallet that is currently the default. */
     private void openCurrent() {
         new Thread(() -> {
             Intent open = null;

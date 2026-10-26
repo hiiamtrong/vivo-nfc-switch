@@ -21,8 +21,8 @@ import java.util.Set;
 import rikka.shizuku.Shizuku;
 
 /**
- * Đổi ví NFC bằng cách đổi holder của role WALLET, chạy lệnh `cmd role` với quyền shell qua Shizuku.
- * Hai ví đổi cho nhau (slot 0 và 1) do người dùng chọn, lưu trong SharedPreferences.
+ * Switches the NFC wallet by changing the holder of the WALLET role, running `cmd role` with shell privileges through Shizuku.
+ * The two wallets that swap (slot 0 and 1) are chosen by the user and stored in SharedPreferences.
  */
 final class Wallet {
     static final String VIVO = "com.vivo.wallet";
@@ -39,7 +39,7 @@ final class Wallet {
 
     private Wallet() {}
 
-    // ---- cấu hình hai ví ----
+    // ---- the two-wallet configuration ----
 
     private static SharedPreferences prefs(Context c) {
         return c.getSharedPreferences("wallet", Context.MODE_PRIVATE);
@@ -53,7 +53,7 @@ final class Wallet {
         prefs(c).edit().putString("slot" + i, pkg).apply();
     }
 
-    /** vivo Wallet (thẻ nằm trên eSE, không có service HCE) và mọi app có service HCE khai báo category payment. */
+    /** vivo Wallet (cards live on the eSE, no HCE service) plus every app with an HCE service declaring the payment category. */
     static List<String> candidates(Context c) {
         PackageManager pm = c.getPackageManager();
         Set<String> pkgs = new LinkedHashSet<>();
@@ -78,13 +78,13 @@ final class Wallet {
                         return true;
                     }
                 }
-            } catch (XmlPullParserException | IOException ignored) { // XML của app khác hỏng thì coi như không phải ví
+            } catch (XmlPullParserException | IOException ignored) { // malformed XML in another app means it is not a wallet
             }
         }
         return false;
     }
 
-    // ---- hiển thị ----
+    // ---- display ----
 
     static String name(Context c, String pkg) {
         if (VIVO.equals(pkg)) return "vivo Wallet";
@@ -99,42 +99,42 @@ final class Wallet {
     static Drawable icon(Context c, String pkg) {
         PackageManager pm = c.getPackageManager();
         try {
-            return pm.getApplicationIcon(GOOGLE.equals(pkg) ? GOOGLE_WALLET_APP : pkg); // icon của gms là mảnh ghép, không phải Google Pay
+            return pm.getApplicationIcon(GOOGLE.equals(pkg) ? GOOGLE_WALLET_APP : pkg); // the gms icon is a puzzle piece, not Google Pay
         } catch (PackageManager.NameNotFoundException e) {
             return pm.getDefaultActivityIcon();
         }
     }
 
-    /** Intent mở ví {@code pkg}: vivo mở thẳng màn quẹt thẻ (màn vivo mở khi bấm nguồn 2 lần), ví khác mở màn chính. Null nếu không mở được. */
+    /** Intent that opens wallet {@code pkg}: vivo opens its swipe screen (the one vivo shows on a power double press), others open their main screen. Null if it cannot be opened. */
     static Intent openIntent(Context c, String pkg) {
         if (VIVO.equals(pkg)) return new Intent("vivo.intent.action.NFC_BUS_SWINGSPLASH").setPackage(VIVO);
         return c.getPackageManager().getLaunchIntentForPackage(GOOGLE.equals(pkg) ? GOOGLE_WALLET_APP : pkg);
     }
 
-    // ---- đổi ví (chặn luồng: gọi từ thread nền) ----
+    // ---- switching (blocking: call from a background thread) ----
 
     static boolean ready() {
         return Shizuku.pingBinder() && Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED;
     }
 
-    /** Package đang giữ role WALLET, hoặc chuỗi rỗng nếu chưa có. */
+    /** Package currently holding the WALLET role, or an empty string if none. */
     static String holder() throws Exception {
         return run("cmd", "role", "get-role-holders", ROLE);
     }
 
-    /** Đặt thẳng ví của ô {@code slot} làm mặc định. Trả về package vừa đặt. */
+    /** Makes the wallet of {@code slot} the default. Returns the package just set. */
     static String use(Context c, int slot) throws Exception {
         String pkg = slot(c, slot);
         run("cmd", "role", "add-role-holder", "--user", "0", ROLE, pkg);
         return pkg;
     }
 
-    /** Sang ví còn lại của cặp; đang ở ví ngoài cặp thì sang ví thứ nhất. Trả về package vừa đặt. */
+    /** Moves to the other wallet of the pair; from a wallet outside the pair it goes to the first. Returns the package just set. */
     static String toggle(Context c) throws Exception {
         return use(c, holder().equals(slot(c, 0)) ? 1 : 0);
     }
 
-    // shortcut: Shizuku.newProcess là private từ API 13.1, gọi bằng reflection; nếu bản Shizuku sau gỡ thì chuyển sang UserService.
+    // shortcut: Shizuku.newProcess is private since API 13.1 and called by reflection, move to a UserService if a later Shizuku removes it.
     private static String run(String... cmd) throws Exception {
         Method m = Shizuku.class.getDeclaredMethod("newProcess", String[].class, String[].class, String.class);
         m.setAccessible(true);

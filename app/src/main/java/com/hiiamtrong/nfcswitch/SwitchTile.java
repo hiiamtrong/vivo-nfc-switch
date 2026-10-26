@@ -7,7 +7,7 @@ import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
-/** Ô Quick Settings: chạm một lần để đổi ví NFC. Chưa có Shizuku thì mở màn chọn ví của hệ thống. */
+/** Quick Settings tile: one tap switches the NFC wallet. Without Shizuku it opens the system wallet picker. */
 public class SwitchTile extends TileService {
 
     @Override
@@ -26,7 +26,7 @@ public class SwitchTile extends TileService {
         new Thread(() -> {
             try {
                 Wallet.toggle(this);
-            } catch (Exception ignored) { // refresh() bên dưới hiện trạng thái thật, kể cả khi đổi lỗi
+            } catch (Exception ignored) { // refresh() below shows the real state, even when the switch failed
             }
             refresh();
         }).start();
