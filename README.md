@@ -59,12 +59,31 @@ To sign a release locally, create a keystore with `keytool`, then put `storeFile
 
 ## Set up
 
-1. Install Shizuku and start it. Either open the Shizuku app and use "Start via Wireless debugging", or connect adb to the phone and run:
-   ```sh
-   ./shizuku.sh
-   ```
-2. Open **Vivo NFC Switch**. When it asks, tap **Grant Shizuku permission** and allow it in the Shizuku dialog.
-3. In **Settings** inside the app, pick the first and second wallet.
+### On the phone only (no computer needed)
+
+1. **Install the app.** On the phone, open the [latest release](https://github.com/hiiamtrong/vivo-nfc-switch/releases/latest), download the `.apk` file, and open it. If OriginOS asks, allow your browser or file manager to install unknown apps.
+2. **Install Shizuku.** Get it from Google Play or from the [Shizuku releases page](https://github.com/RikkaApps/Shizuku/releases).
+3. **Turn on Developer options.** Go to Settings, open About phone, and tap Software version seven times. Menu names differ between OriginOS versions, so you can also search Settings for "Developer options".
+4. **Turn on Wireless debugging.** Connect to Wi-Fi, open Developer options, and switch on Wireless debugging.
+5. **Pair Shizuku (only once).** Open Shizuku and choose "Start via Wireless debugging", then start pairing. Open Wireless debugging in Settings, tap "Pair device with pairing code", and type the code into the Shizuku notification.
+6. **Start Shizuku.** Go back to Shizuku and tap Start. It should say that Shizuku is running.
+7. **Allow the app.** Open **Vivo NFC Switch**, tap **Grant Shizuku permission**, and choose "Allow all the time".
+8. **Pick your wallets.** In **Settings** inside the app, choose the first and second wallet. Then add the **NFC wallet** tile to Quick Settings or assign a shortcut to the Smart Button.
+
+If something goes wrong:
+
+- Shizuku keeps showing "Searching for pairing service": allow Shizuku to run in the background in the battery and auto-start settings of the phone.
+- Shizuku does not start: switch Wireless debugging off and on again, and check that the phone is on Wi-Fi.
+
+### From a computer (optional)
+
+Connect adb to the phone and start Shizuku with:
+
+```sh
+./shizuku.sh
+```
+
+Then do steps 7 and 8 above.
 
 ## Usage
 
@@ -81,7 +100,7 @@ To sign a release locally, create a keystore with `keytool`, then put `storeFile
 
 ## After a reboot
 
-Shizuku stops when the phone restarts, because it runs without root. Start it again with the Shizuku app or `./shizuku.sh`. The default wallet, the Shizuku permission, your wallet pair, shortcuts, and language all survive the reboot.
+Shizuku stops when the phone restarts, because it runs without root. Start it again: on the phone, turn on Wi-Fi and Wireless debugging, open Shizuku, and tap Start (no new pairing needed). Or run `./shizuku.sh` from a computer. The default wallet, the Shizuku permission, your wallet pair, shortcuts, and language all survive the reboot.
 
 While Shizuku is not running, the tile opens the system payment screen instead and the shortcuts show a message asking you to start Shizuku.
 

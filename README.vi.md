@@ -59,12 +59,31 @@ Push một tag như `v1.0.0` sẽ chạy `.github/workflows/release.yml`: build 
 
 ## Thiết lập
 
-1. Cài Shizuku và khởi động nó. Mở app Shizuku rồi chọn "Start via Wireless debugging", hoặc kết nối adb với điện thoại và chạy:
-   ```sh
-   ./shizuku.sh
-   ```
-2. Mở **Đổi ví NFC vivo**. Khi app hỏi, bấm **Cấp quyền Shizuku** và chọn cho phép trong hộp thoại của Shizuku.
-3. Trong phần **Cài đặt** của app, chọn ví thứ nhất và ví thứ hai.
+### Chỉ trên điện thoại (không cần máy tính)
+
+1. **Cài app.** Trên điện thoại, mở [bản phát hành mới nhất](https://github.com/hiiamtrong/vivo-nfc-switch/releases/latest), tải file `.apk` rồi mở nó. Nếu OriginOS hỏi, cho phép trình duyệt hoặc trình quản lý file được cài app không rõ nguồn gốc.
+2. **Cài Shizuku.** Lấy từ Google Play hoặc từ [trang phát hành của Shizuku](https://github.com/RikkaApps/Shizuku/releases).
+3. **Bật Tuỳ chọn nhà phát triển.** Vào Cài đặt, mở Giới thiệu điện thoại, chạm 7 lần vào Phiên bản phần mềm. Tên menu khác nhau giữa các bản OriginOS nên bạn cũng có thể tìm "Tuỳ chọn nhà phát triển" trong ô tìm kiếm của Cài đặt.
+4. **Bật Gỡ lỗi không dây.** Kết nối Wi-Fi, mở Tuỳ chọn nhà phát triển và bật Gỡ lỗi không dây (Wireless debugging).
+5. **Ghép đôi Shizuku (chỉ một lần).** Mở Shizuku, chọn "Start via Wireless debugging" rồi bắt đầu ghép đôi. Mở Gỡ lỗi không dây trong Cài đặt, bấm "Ghép nối thiết bị bằng mã ghép nối" (Pair device with pairing code) và nhập mã vào thông báo của Shizuku.
+6. **Khởi động Shizuku.** Quay lại Shizuku và bấm Start. Màn hình sẽ báo Shizuku đang chạy.
+7. **Cấp quyền cho app.** Mở **Đổi ví NFC vivo**, bấm **Cấp quyền Shizuku** và chọn "Allow all the time".
+8. **Chọn ví.** Trong phần **Cài đặt** của app, chọn ví thứ nhất và ví thứ hai. Sau đó thêm ô **Ví NFC** vào Quick Settings hoặc gán shortcut cho Smart Button.
+
+Nếu gặp lỗi:
+
+- Shizuku cứ hiện "Searching for pairing service": cho phép Shizuku chạy nền trong phần cài đặt pin và tự khởi động của máy.
+- Shizuku không khởi động: tắt rồi bật lại Gỡ lỗi không dây, và kiểm tra điện thoại đang dùng Wi-Fi.
+
+### Từ máy tính (tuỳ chọn)
+
+Kết nối adb với điện thoại và khởi động Shizuku bằng:
+
+```sh
+./shizuku.sh
+```
+
+Sau đó làm bước 7 và 8 ở trên.
 
 ## Sử dụng
 
@@ -81,7 +100,7 @@ Push một tag như `v1.0.0` sẽ chạy `.github/workflows/release.yml`: build 
 
 ## Sau khi khởi động lại điện thoại
 
-Shizuku tắt khi máy khởi động lại vì nó chạy không cần root. Bật lại bằng app Shizuku hoặc `./shizuku.sh`. Ví mặc định, quyền Shizuku, cặp ví, shortcut và ngôn ngữ đều được giữ nguyên.
+Shizuku tắt khi máy khởi động lại vì nó chạy không cần root. Bật lại: trên điện thoại, bật Wi-Fi và Gỡ lỗi không dây, mở Shizuku và bấm Start (không cần ghép đôi lại). Hoặc chạy `./shizuku.sh` từ máy tính. Ví mặc định, quyền Shizuku, cặp ví, shortcut và ngôn ngữ đều được giữ nguyên.
 
 Khi Shizuku chưa chạy, ô Quick Settings mở màn thanh toán của hệ thống, còn shortcut hiện thông báo nhắc bật Shizuku.
 
