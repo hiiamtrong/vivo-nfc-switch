@@ -51,6 +51,12 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 Mỗi lần push và pull request đều được GitHub Actions build (`.github/workflows/build.yml`), APK debug được đính kèm vào lần chạy dưới dạng artifact `vivo-nfc-switch-debug-apk`.
 
+## Phát hành
+
+Push một tag như `v1.0.0` sẽ chạy `.github/workflows/release.yml`: build APK release đã ký và đính kèm vào một GitHub release. Cần bốn secret của repo: `RELEASE_KEYSTORE_BASE64`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS` và `RELEASE_KEY_PASSWORD`.
+
+Để ký release trên máy, tạo keystore bằng `keytool`, rồi ghi `storeFile`, `storePassword`, `keyAlias`, `keyPassword` vào file `keystore.properties` ở thư mục gốc dự án (đã git-ignore) và chạy `./gradlew assembleRelease`. APK release ký bằng khoá khác với APK debug nên phải gỡ bản debug trước khi cài.
+
 ## Thiết lập
 
 1. Cài Shizuku và khởi động nó. Mở app Shizuku rồi chọn "Start via Wireless debugging", hoặc kết nối adb với điện thoại và chạy:

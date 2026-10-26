@@ -51,6 +51,12 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 Every push and pull request is built by GitHub Actions (`.github/workflows/build.yml`), and the debug APK is attached to the run as the `vivo-nfc-switch-debug-apk` artifact.
 
+## Releases
+
+Pushing a tag such as `v1.0.0` runs `.github/workflows/release.yml`, which builds a signed release APK and attaches it to a GitHub release. It needs four repository secrets: `RELEASE_KEYSTORE_BASE64`, `RELEASE_STORE_PASSWORD`, `RELEASE_KEY_ALIAS`, and `RELEASE_KEY_PASSWORD`.
+
+To sign a release locally, create a keystore with `keytool`, then put `storeFile`, `storePassword`, `keyAlias`, and `keyPassword` in a `keystore.properties` file at the project root (it is git-ignored) and run `./gradlew assembleRelease`. A release APK is signed with a different key than the debug APK, so uninstall the debug build before installing it.
+
 ## Set up
 
 1. Install Shizuku and start it. Either open the Shizuku app and use "Start via Wireless debugging", or connect adb to the phone and run:
