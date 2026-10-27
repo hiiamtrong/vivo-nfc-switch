@@ -27,6 +27,7 @@
     <string name="open_system">Open system payment settings</string>
     <string name="shortcut_hint">Smart Button: assign the "%1$s" or "%2$s" shortcut of this app to switch wallets with a single press.</string>
     <string name="tile_label">NFC wallet</string>
+    <string name="tile_current_fmt">NFC: %s</string>
     <string name="tile_no_shizuku">Shizuku is off</string>
     <string name="tile_error">Error</string>
     <string name="toast_switched_fmt">Switched to %s</string>

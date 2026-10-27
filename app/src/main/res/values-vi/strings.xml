@@ -27,6 +27,7 @@
     <string name="open_system">Mở cài đặt thanh toán của hệ thống</string>
     <string name="shortcut_hint">Smart Button: gán lối tắt "%1$s" hoặc "%2$s" của app này để đổi ví chỉ bằng một lần bấm.</string>
     <string name="tile_label">Ví NFC</string>
+    <string name="tile_current_fmt">NFC: %s</string>
     <string name="tile_no_shizuku">Chưa bật Shizuku</string>
     <string name="tile_error">Lỗi</string>
     <string name="toast_switched_fmt">Đã chuyển sang %s</string>
