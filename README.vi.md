@@ -37,7 +37,7 @@ App / ô Quick Settings / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-h
 
 ## Yêu cầu
 
-- Điện thoại vivo chạy OriginOS trên Android 14 trở lên (minSdk 34). Mới chỉ kiểm tra trên X300 Pro.
+- Điện thoại vivo chạy OriginOS (bản Trung Quốc) hoặc Funtouch OS (bản Global) trên Android 14 trở lên (minSdk 34). Mới chỉ kiểm tra trên X300 Pro chạy OriginOS.
 - [Shizuku](https://github.com/RikkaApps/Shizuku/releases) đã cài và đang chạy.
 - Để build: JDK 17 và Android SDK có platform 35. Gradle wrapper tự tải Gradle.
 - Để bật Shizuku từ máy tính: `adb` với Wireless debugging đã bật.
@@ -106,6 +106,7 @@ Khi Shizuku chưa chạy, ô Quick Settings mở màn thanh toán của hệ th�
 
 ## Giới hạn đã biết
 
+- **vivo Global (Funtouch OS).** App Access Card (`com.vivo.seclient`) được tự nhận diện và thay chỗ vivo Wallet trong danh sách, cũng là ví thứ nhất mặc định. Phần này chưa được kiểm tra, và hệ thống có thể từ chối đặt Access Card làm ví mặc định. Khi đó app hiện thông báo lỗi.
 - **Bấm nút nguồn 2 lần.** OriginOS luôn mở màn quẹt thẻ của vivo Wallet khi bấm nguồn 2 lần, bất kể ví mặc định là gì. Công tắc đó thuộc về app vivo Wallet và không thể ghi từ bên ngoài. Nếu bạn tắt nó trong vivo Wallet thì bấm nguồn 2 lần chỉ khoá máy, vì ROM này không có cử chỉ double-press chuẩn của Android. Hãy dùng shortcut *Mở ví đang dùng* trên Smart Button thay thế.
 - **Màn nhắc nhảy app.** vivo có thể hiện một màn nhắc "chuyển sang app khác" trong khoảng 1 giây khi shortcut mở ví.
 - **App Google Wallet.** App Google Wallet (`com.google.android.apps.walletnfcrel`) không giữ được role ví. Google Pay được đổi qua Google Play services (`com.google.android.gms`), và app dùng đúng package này.

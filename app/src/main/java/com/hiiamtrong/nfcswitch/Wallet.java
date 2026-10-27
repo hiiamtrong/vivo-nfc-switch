@@ -26,6 +26,7 @@ import rikka.shizuku.Shizuku;
  */
 final class Wallet {
     static final String VIVO = "com.vivo.wallet";
+    static final String ACCESS_CARD = "com.vivo.seclient";
     static final String GOOGLE = "com.google.android.gms";
     private static final String GOOGLE_WALLET_APP = "com.google.android.apps.walletnfcrel";
     private static final String ROLE = "android.app.role.WALLET";
@@ -46,18 +47,34 @@ final class Wallet {
     }
 
     static String slot(Context c, int i) {
-        return prefs(c).getString("slot" + i, i == 0 ? VIVO : GOOGLE);
+        return prefs(c).getString("slot" + i, i == 0 ? vivoWallet(c) : GOOGLE);
+    }
+
+    /** vivo's own wallet app: vivo Wallet on OriginOS (China), Access Card on Funtouch OS (Global). */
+    private static String vivoWallet(Context c) {
+        return (installed(c, VIVO) || !installed(c, ACCESS_CARD)) ? VIVO : ACCESS_CARD;
+    }
+
+    private static boolean installed(Context c, String pkg) {
+        try {
+            c.getPackageManager().getApplicationInfo(pkg, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     static void setSlot(Context c, int i, String pkg) {
         prefs(c).edit().putString("slot" + i, pkg).apply();
     }
 
-    /** vivo Wallet (cards live on the eSE, no HCE service) plus every app with an HCE service declaring the payment category. */
+    /** The vivo wallet apps that are installed (cards live on the eSE, no HCE service) plus every app with an HCE service declaring the payment category. */
     static List<String> candidates(Context c) {
         PackageManager pm = c.getPackageManager();
         Set<String> pkgs = new LinkedHashSet<>();
-        pkgs.add(VIVO);
+        for (String vivo : new String[] {VIVO, ACCESS_CARD}) {
+            if (installed(c, vivo)) pkgs.add(vivo);
+        }
         for (String action : ACTIONS) {
             for (ResolveInfo ri : pm.queryIntentServices(new Intent(action), PackageManager.GET_META_DATA)) {
                 if (isPayment(pm, ri.serviceInfo)) pkgs.add(ri.serviceInfo.packageName);

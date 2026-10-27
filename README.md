@@ -37,7 +37,7 @@ App / tile / shortcut  ->  Shizuku (shell)  ->  cmd role add-role-holder WALLET 
 
 ## Requirements
 
-- A vivo phone running OriginOS on Android 14 or newer (minSdk 34). Only the X300 Pro has been tested.
+- A vivo phone running OriginOS (China) or Funtouch OS (Global) on Android 14 or newer (minSdk 34). Only the X300 Pro with OriginOS has been tested.
 - [Shizuku](https://github.com/RikkaApps/Shizuku/releases) installed and running.
 - To build: JDK 17 and the Android SDK with platform 35. The Gradle wrapper downloads Gradle itself.
 - To start Shizuku from a computer: `adb` with wireless debugging enabled.
@@ -106,6 +106,7 @@ While Shizuku is not running, the tile opens the system payment screen instead a
 
 ## Known limits
 
+- **vivo Global (Funtouch OS).** The Access Card app (`com.vivo.seclient`) is detected automatically and takes the place of vivo Wallet in the list and as the default first wallet. This is untested, and the system may refuse to make Access Card the default wallet. If it does, the app shows the error message.
 - **Power button double press.** OriginOS always opens the vivo Wallet swipe screen on a double press, whatever the default wallet is. That switch belongs to the vivo Wallet app and cannot be written from outside. If you turn it off in vivo Wallet, the double press only locks the phone, because this ROM has no standard Android double-press gesture. Use the *Open current wallet* shortcut on the Smart Button instead.
 - **App jump prompt.** vivo may show a short "jump to another app" prompt when a shortcut opens a wallet.
 - **Google Wallet app.** The Google Wallet app (`com.google.android.apps.walletnfcrel`) cannot hold the wallet role. Google Pay is switched through Google Play services (`com.google.android.gms`), which is what the app uses for it.

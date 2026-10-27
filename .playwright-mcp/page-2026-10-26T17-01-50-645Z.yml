@@ -1,0 +1,171 @@
+- generic [ref=f2e5]:
+  - banner:
+    - generic [ref=f2e8]:
+      - generic [ref=f2e10]:
+        - generic [aria-hidden]:
+          - button [disabled]
+        - button "Facebook" [ref=f2e12] [cursor=pointer]:
+          - img "Facebook" [ref=f2e13]
+      - generic [ref=f2e18]:
+        - textbox "Email or phone" [ref=f2e21]
+        - textbox "Password" [ref=f2e24]
+        - button "Log in" [ref=f2e27] [cursor=pointer]
+        - link "Forgotten account?" [ref=f2e34] [cursor=pointer]:
+          - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+  - main [ref=f2e39]:
+    - generic [ref=f2e40]:
+      - link [ref=f2e52] [cursor=pointer]:
+        - /url: https://www.facebook.com/photo/?fbid=4132980463620545&set=p.4132980463620545
+      - generic [ref=f2e61]:
+        - generic [ref=f2e67]:
+          - heading [level=1] [ref=f2e69]:
+            - generic [ref=f2e70]: Cộng đồng vivo Việt Nam - vivo Vietnam community
+          - generic [ref=f2e76]:
+            - generic [ref=f2e77]: Public group
+            - generic [ref=f2e87]: ·
+            - button [ref=f2e91] [cursor=pointer]: 158.0K members
+        - generic [ref=f2e93]:
+          - button [ref=f2e97] [cursor=pointer]:
+            - generic [ref=f2e98]: Join Group
+          - button [ref=f2e109] [cursor=pointer]
+    - tablist [ref=f2e128]:
+      - generic [ref=f2e130]:
+        - generic [ref=f2e131]: More
+        - tab [selected] [ref=f2e137] [cursor=pointer]:
+          - generic [ref=f2e138]: About
+        - tab [ref=f2e141] [cursor=pointer]:
+          - generic [ref=f2e142]: Discussion
+        - tab [ref=f2e145] [cursor=pointer]:
+          - generic [ref=f2e146]: Featured
+        - tab [ref=f2e149] [cursor=pointer]:
+          - generic [ref=f2e150]: Events
+        - tab [ref=f2e153] [cursor=pointer]:
+          - generic [ref=f2e154]: Media
+    - generic [ref=f2e162]:
+      - generic [ref=f2e169]:
+        - heading [level=2] [ref=f2e179]:
+          - generic [ref=f2e180]: About this group
+        - generic [ref=f2e182]:
+          - separator [ref=f2e183]
+          - generic [ref=f2e189]:
+            - text: Tại đây, chúng tôi không chỉ là nơi cập nhật sớm nhất những siêu phẩm công nghệ từ Vivo X300 Series, x200 series, mà còn là "thánh địa" dành cho…
+            - button [ref=f2e190] [cursor=pointer]: See more
+          - list [ref=f2e191]:
+            - listitem [ref=f2e192]:
+              - generic [ref=f2e199]:
+                - generic [ref=f2e200]: Public
+                - generic [ref=f2e202]: Anyone can see who's in the group and what they post.
+            - listitem [ref=f2e204]:
+              - generic [ref=f2e212]:
+                - generic [ref=f2e213]: Visible
+                - generic [ref=f2e215]: Anyone can find this group.
+            - listitem [ref=f2e217]:
+              - generic [ref=f2e224]:
+                - generic [ref=f2e225]: History
+                - generic [ref=f2e229]:
+                  - text: Group created on 2 August 2017. Name last changed on 4 September 2021.
+                  - button [ref=f2e230] [cursor=pointer]: See more
+            - listitem [ref=f2e231]:
+              - generic [ref=f2e238]:
+                - generic [ref=f2e239]: Tags
+                - generic [ref=f2e241]: Technology • Engineering
+            - listitem [ref=f2e243]:
+              - generic [ref=f2e244]: Ho Chi Minh City, Vietnam
+      - generic [ref=f2e259]:
+        - heading [level=2] [ref=f2e269]:
+          - generic [ref=f2e271]:
+            - text: Members
+            - generic [ref=f2e272]:
+              - generic [ref=f2e273]: ·
+              - text: 158.0K
+        - generic [ref=f2e275]:
+          - separator [ref=f2e276]
+          - generic [ref=f2e279]:
+            - list [ref=f2e281]:
+              - listitem [ref=f2e282]:
+                - link [ref=f2e286] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f2e292]:
+                - link [ref=f2e296] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f2e302]:
+                - link [ref=f2e306] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=f2e312]:
+                - link [ref=f2e316] [cursor=pointer]:
+                  - /url: "#"
+            - generic [ref=f2e322]: David and Au are admins. Sang and Tran are moderators.
+          - link [ref=f2e328] [cursor=pointer]:
+            - /url: /groups/276869792793297/members/
+            - generic [ref=f2e329]: See All
+      - generic [ref=f2e338]:
+        - heading [level=2] [ref=f2e348]:
+          - generic [ref=f2e349]: Activity
+        - generic [ref=f2e351]:
+          - separator [ref=f2e352]
+          - list [ref=f2e353]:
+            - listitem [ref=f2e354]:
+              - generic [ref=f2e360]:
+                - generic [ref=f2e361]: 77 new posts today
+                - generic [ref=f2e363]: 2,088 in the last month
+            - listitem [ref=f2e365]:
+              - generic [ref=f2e371]:
+                - generic [ref=f2e372]: 158,011 total members
+                - generic [ref=f2e374]: No new members in the last week
+            - listitem [ref=f2e376]:
+              - generic [ref=f2e384]:
+                - text: Created on
+                - generic [ref=f2e385]: 9 years ago
+      - generic [ref=f2e392]:
+        - heading [level=2] [ref=f2e404]:
+          - generic [ref=f2e405]: Group rules from the admins
+        - separator [ref=f2e408]
+        - list [ref=f2e410]:
+          - listitem [ref=f2e411]:
+            - button [expanded] [ref=f2e412] [cursor=pointer]:
+              - generic [ref=f2e421]:
+                - generic [ref=f2e422]: "1"
+                - generic [ref=f2e424]: Quy định mua bán trên nhóm
+          - generic [ref=f2e432]:
+            - text: "Nhóm cho phép mua bán, giao lưu máy, phụ kiện.. liên quan đến điện thoại Vivo. ✅Bài phải thể hiện tên máy, cấu hình, tình trạng... kèm giá bán cụ thể. ⚠Mỗi TV chỉ được phép đăng mua bán 1 bài/ 7 ngày để tránh loãng nhóm. ✅Các shop vui lòng tham khảo quy định bán hàng tại đây:"
+            - link [ref=f2e433] [cursor=pointer]:
+              - /url: https://www.facebook.com/share/p/Lvf3JFc2XVzQ8Jcc/
+              - text: https://www.facebook.com/share/p/Lvf3JFc2XVzQ8Jcc/
+            - text: ✅Ưu tiên đăng bài mua bán tại nhóm riêng, nơi đăng mua bán không giới hạn link 👇 www.facebook.com/groups/muabandienthoaichinhhang
+          - listitem [ref=f2e435]:
+            - button [ref=f2e436] [cursor=pointer]:
+              - generic [ref=f2e445]:
+                - generic [ref=f2e446]: "2"
+                - generic [ref=f2e448]: Vui lòng đọc và đồng ý với quy định nhóm
+          - listitem [ref=f2e451]:
+            - button [expanded] [ref=f2e452] [cursor=pointer]:
+              - generic [ref=f2e461]:
+                - generic [ref=f2e462]: "3"
+                - generic [ref=f2e464]: Không quảng cáo hoặc spam
+          - generic [ref=f2e472]:
+            - text: "Trong nhóm, hãy cho đi nhiều hơn nhận lại. Bạn không được tự quảng bá, spam và đăng liên kết không phù hợp. ⛔ Nhóm hạn chế mua bán nên có thể không phù hợp với dân buôn, cửa hàng. Anh em đã tham gia thì tuân thủ quy định về bán hàng trên nhóm. Không lạm dụng nhóm để spam bán hàng. Tham khảo chính sách bán hàng dành cho shop tại đây:"
+            - link [ref=f2e473] [cursor=pointer]:
+              - /url: https://www.facebook.com/share/p/Lvf3JFc2XVzQ8Jcc/
+              - text: https://www.facebook.com/share/p/Lvf3JFc2XVzQ8Jcc/
+          - listitem [ref=f2e475]:
+            - button [expanded] [ref=f2e476] [cursor=pointer]:
+              - generic [ref=f2e485]:
+                - generic [ref=f2e486]: "4"
+                - generic [ref=f2e488]: Hãy tử tế và lịch sự
+          - generic [ref=f2e494]: Tất cả chúng ta cùng có mặt ở đây để tạo nên một môi trường thân thiện. Hãy tôn trọng tất cả mọi người. Tranh luận lành mạnh là điều hết sức tự nhiên nhưng cũng cần tử tế.
+  - dialog [ref=f2e506]:
+    - button "Close" [ref=f2e508] [cursor=pointer]
+    - generic [ref=f2e515]:
+      - generic [ref=f2e516]: See more on Facebook
+      - generic [ref=f2e523]:
+        - generic: Email address or phone number
+        - textbox "Email address or phone number" [active] [ref=f2e524]
+      - generic [ref=f2e529]:
+        - generic: Password
+        - textbox "Password" [ref=f2e530]
+      - button "Log in to Facebook" [ref=f2e532] [cursor=pointer]:
+        - generic [ref=f2e533]: Log in
+      - link "Forgotten password?" [ref=f2e537] [cursor=pointer]:
+        - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+      - generic [ref=f2e539]: or
+      - button "Create new account" [ref=f2e548] [cursor=pointer]

@@ -1,0 +1,150 @@
+- generic [ref=e5]:
+  - banner:
+    - generic [ref=e8]:
+      - generic [ref=e10]:
+        - generic [aria-hidden]:
+          - button [disabled]
+        - button "Facebook" [ref=e12] [cursor=pointer]:
+          - img "Facebook" [ref=e13]
+      - generic [ref=e18]:
+        - textbox "Email or phone" [ref=e21]
+        - textbox "Password" [ref=e24]
+        - button "Log in" [ref=e27] [cursor=pointer]
+        - link "Forgotten account?" [ref=e34] [cursor=pointer]:
+          - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - link [ref=e52] [cursor=pointer]:
+        - /url: https://www.facebook.com/photo/?fbid=4132980463620545&set=p.4132980463620545
+      - generic [ref=e61]:
+        - generic [ref=e67]:
+          - heading [level=1] [ref=e69]:
+            - generic [ref=e70]: Cộng đồng vivo Việt Nam - vivo Vietnam community
+          - generic [ref=e76]:
+            - generic [ref=e77]: Public group
+            - generic [ref=e87]: ·
+            - button [ref=e91] [cursor=pointer]: 158.0K members
+        - generic [ref=e93]:
+          - button [ref=e97] [cursor=pointer]:
+            - generic [ref=e98]: Join Group
+          - button [ref=e109] [cursor=pointer]
+    - tablist [ref=e128]:
+      - generic [ref=e130]:
+        - generic [ref=e131]: More
+        - tab [ref=e137] [cursor=pointer]:
+          - generic [ref=e138]: About
+        - tab [selected] [ref=e141] [cursor=pointer]:
+          - generic [ref=e142]: Discussion
+        - tab [ref=e145] [cursor=pointer]:
+          - generic [ref=e146]: Featured
+        - tab [ref=e149] [cursor=pointer]:
+          - generic [ref=e150]: Events
+        - tab [ref=e153] [cursor=pointer]:
+          - generic [ref=e154]: Media
+    - generic [ref=e165]:
+      - generic [ref=e171]:
+        - generic [ref=e172]: Featured
+        - button [ref=e177] [cursor=pointer]
+        - button [ref=e181] [cursor=pointer]
+      - feed [ref=e184]:
+        - article [ref=e189]:
+          - generic [ref=e197]:
+            - generic [ref=e209]:
+              - heading [level=2] [ref=e213]:
+                - button [ref=e218] [cursor=pointer]: AdventurousCorgi2590
+              - generic [ref=e221]:
+                - generic [ref=e224]:
+                  - generic [aria-hidden] [ref=e225]: 12 hours ago
+                  - link [ref=e226] [cursor=pointer]:
+                    - /url: https://www.facebook.com/groups/ToiYeuVivo/posts/2558365007977086/?__cft__[0]=AZh6QGXytmPX4Rf6dcScNpW-opBXsaWU7CvX_-_5M75B0HSymR-BU7uLeKv6Pw34x0H4YI0ouyGBiRbrrIWNxhOcIlNFLctJDhljhCsaQZgZKeMy7Pm14R6OCZ3ef92HiIn3wJdxE32AzmXbtNsp62saKGy41cgC6MeKhmqneFmnPsC9zYZFSOnGrtdMjyE6irg2pJfq2cVA1wrXzzhq3zVZjg&__tn__=%2CO%2CP-R
+                    - text: 12h
+                - generic [ref=e227]: ·
+            - generic [ref=e239]:
+              - generic [ref=e243]:
+                - heading [level=3] [ref=e245]:
+                  - strong [ref=e248]: Con x200promini của em hết HSD r hả mn
+                - generic [ref=e249]: Sao mà càng ngày nó càng xấu, nó mờ nó xấu quá vậy
+              - link [ref=e253] [cursor=pointer]:
+                - /url: https://www.facebook.com/photo/?fbid=1415008416975130&set=gm.2558365007977086&idorvanity=276869792793297&__cft__[0]=AZh6QGXytmPX4Rf6dcScNpW-opBXsaWU7CvX_-_5M75B0HSymR-BU7uLeKv6Pw34x0H4YI0ouyGBiRbrrIWNxhOcIlNFLctJDhljhCsaQZgZKeMy7Pm14R6OCZ3ef92HiIn3wJdxE32AzmXbtNsp62saKGy41cgC6MeKhmqneFmnPsC9zYZFSOnGrtdMjyE6irg2pJfq2cVA1wrXzzhq3zVZjg&__tn__=EH-R
+            - generic [ref=e261]:
+              - generic [ref=e263]:
+                - generic [ref=e265]:
+                  - generic [ref=e266]:
+                    - toolbar [ref=e267]:
+                      - generic [ref=e268]:
+                        - button [ref=e272] [cursor=pointer]
+                        - button [ref=e276] [cursor=pointer]
+                    - generic [ref=e277]: "All reactions:"
+                    - generic [ref=e279]: "66"
+                  - generic [ref=e280]:
+                    - button [ref=e283] [cursor=pointer]:
+                      - generic [ref=e284]: "68"
+                    - button [ref=e291] [cursor=pointer]:
+                      - generic [ref=e292]: "1"
+                - generic [ref=e298]:
+                  - button [ref=e300] [cursor=pointer]:
+                    - generic [ref=e301]: Like
+                  - button [ref=e307] [cursor=pointer]:
+                    - generic [ref=e308]: Comment
+                  - button [ref=e314] [cursor=pointer]:
+                    - generic [ref=e315]: Share
+              - generic [ref=e320]:
+                - button [ref=e324] [cursor=pointer]:
+                  - generic [ref=e325]: View more answers
+                - generic [ref=e327]:
+                  - generic [ref=e328]:
+                    - article [ref=e331]:
+                      - link [aria-hidden] [ref=e336] [cursor=pointer]:
+                        - /url: "#"
+                      - generic [ref=e342]:
+                        - generic [ref=e346]:
+                          - button [ref=e350] [cursor=pointer]:
+                            - generic [ref=e351]: Nguyễn Thế Anh
+                          - generic [ref=e353]: đr đó b, mình cũng x200pmn mình biết =)))
+                        - list [ref=e358]:
+                          - listitem [ref=e359]:
+                            - link [ref=e362] [cursor=pointer]:
+                              - /url: https://www.facebook.com/groups/ToiYeuVivo/posts/2558365007977086/?comment_id=2558382387975348&__cft__[0]=AZh6QGXytmPX4Rf6dcScNpW-opBXsaWU7CvX_-_5M75B0HSymR-BU7uLeKv6Pw34x0H4YI0ouyGBiRbrrIWNxhOcIlNFLctJDhljhCsaQZgZKeMy7Pm14R6OCZ3ef92HiIn3wJdxE32AzmXbtNsp62saKGy41cgC6MeKhmqneFmnPsC9zYZFSOnGrtdMjyE6irg2pJfq2cVA1wrXzzhq3zVZjg&__tn__=R-R
+                              - text: 12h
+                    - button [ref=e368] [cursor=pointer]:
+                      - generic [ref=e369]: View all 2 replies
+                  - generic [ref=e371]:
+                    - article [ref=e374]:
+                      - link [aria-hidden] [ref=e379] [cursor=pointer]:
+                        - /url: "#"
+                      - generic [ref=e385]:
+                        - generic [ref=e389]:
+                          - button [ref=e393] [cursor=pointer]:
+                            - generic [ref=e394]: Phan Nghiem
+                          - generic [ref=e396]: Muốn đẹp xuống os5 á bác, em lên os6 chụp xấu điên
+                        - generic [ref=e404]:
+                          - list [ref=e405]:
+                            - listitem [ref=e406]:
+                              - link [ref=e409] [cursor=pointer]:
+                                - /url: https://www.facebook.com/groups/ToiYeuVivo/posts/2558365007977086/?comment_id=2558553454624908&__cft__[0]=AZh6QGXytmPX4Rf6dcScNpW-opBXsaWU7CvX_-_5M75B0HSymR-BU7uLeKv6Pw34x0H4YI0ouyGBiRbrrIWNxhOcIlNFLctJDhljhCsaQZgZKeMy7Pm14R6OCZ3ef92HiIn3wJdxE32AzmXbtNsp62saKGy41cgC6MeKhmqneFmnPsC9zYZFSOnGrtdMjyE6irg2pJfq2cVA1wrXzzhq3zVZjg&__tn__=R-R
+                                - text: 8h
+                          - button [ref=e414] [cursor=pointer]:
+                            - generic [ref=e415]: "1"
+                    - button [ref=e424] [cursor=pointer]:
+                      - generic [ref=e425]: View all 3 replies
+        - generic [ref=e428]:
+          - article [ref=e429]:
+            - status [ref=e430]
+          - article [ref=e442]:
+            - status [ref=e443]
+  - dialog [ref=e463]:
+    - button "Close" [ref=e465] [cursor=pointer]
+    - generic [ref=e472]:
+      - generic [ref=e473]: See more on Facebook
+      - generic [ref=e480]:
+        - generic: Email address or phone number
+        - textbox "Email address or phone number" [active] [ref=e481]
+      - generic [ref=e486]:
+        - generic: Password
+        - textbox "Password" [ref=e487]
+      - button "Log in to Facebook" [ref=e489] [cursor=pointer]:
+        - generic [ref=e490]: Log in
+      - link "Forgotten password?" [ref=e494] [cursor=pointer]:
+        - /url: https://www.facebook.com/recover/initiate?ars=royal_blue_bar
+      - generic [ref=e496]: or
+      - button "Create new account" [ref=e505] [cursor=pointer]

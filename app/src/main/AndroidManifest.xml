@@ -8,6 +8,7 @@
         <intent><action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" /></intent>
         <intent><action android:name="android.nfc.cardemulation.action.OFF_HOST_APDU_SERVICE" /></intent>
         <package android:name="com.vivo.wallet" />
+        <package android:name="com.vivo.seclient" />
         <package android:name="com.google.android.apps.walletnfcrel" />
     </queries>
 
