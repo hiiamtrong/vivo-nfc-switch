@@ -20,6 +20,11 @@
     <string name="pick_first">Choose the first wallet</string>
     <string name="pick_second">Choose the second wallet</string>
     <string name="cancel">Cancel</string>
+    <string name="auth_title">Shizuku auto-start code</string>
+    <string name="auth_set">Set</string>
+    <string name="auth_unset">Not set</string>
+    <string name="auth_hint">Lets the app and its shortcuts start Shizuku by themselves. It works only with the thedjchi Shizuku fork. Open Shizuku, tap "View intents", copy the Extras value, and paste it here.</string>
+    <string name="save">Save</string>
     <string name="language">Language</string>
     <string name="lang_system">System default</string>
     <string name="lang_vi">Tiếng Việt</string>
@@ -32,6 +37,7 @@
     <string name="tile_error">Error</string>
     <string name="toast_switched_fmt">Switched to %s</string>
     <string name="toast_failed_fmt">Could not switch: %s</string>
+    <string name="toast_starting_shizuku">Starting Shizuku...</string>
     <string name="toast_need_shizuku">Start Shizuku and grant it to the app</string>
     <string name="shortcut_toggle">Switch NFC wallet</string>
     <string name="shortcut_toggle_long">Quickly switch between your two NFC wallets</string>

@@ -20,6 +20,11 @@
     <string name="pick_first">Chọn ví thứ nhất</string>
     <string name="pick_second">Chọn ví thứ hai</string>
     <string name="cancel">Huỷ</string>
+    <string name="auth_title">Mã tự bật Shizuku</string>
+    <string name="auth_set">Đã đặt</string>
+    <string name="auth_unset">Chưa đặt</string>
+    <string name="auth_hint">Cho phép app và các shortcut tự bật Shizuku. Chỉ dùng được với bản Shizuku fork của thedjchi. Mở Shizuku, bấm "View intents", sao chép giá trị ở ô Extras rồi dán vào đây.</string>
+    <string name="save">Lưu</string>
     <string name="language">Ngôn ngữ</string>
     <string name="lang_system">Theo hệ thống</string>
     <string name="lang_vi">Tiếng Việt</string>
@@ -32,6 +37,7 @@
     <string name="tile_error">Lỗi</string>
     <string name="toast_switched_fmt">Đã chuyển sang %s</string>
     <string name="toast_failed_fmt">Không đổi được: %s</string>
+    <string name="toast_starting_shizuku">Đang bật Shizuku...</string>
     <string name="toast_need_shizuku">Cần bật Shizuku và cấp quyền cho app</string>
     <string name="shortcut_toggle">Đổi ví NFC</string>
     <string name="shortcut_toggle_long">Đổi nhanh giữa hai ví NFC</string>

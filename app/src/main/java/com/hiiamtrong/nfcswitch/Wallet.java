@@ -8,6 +8,10 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
+import android.os.SystemClock;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -30,6 +34,9 @@ final class Wallet {
     static final String GOOGLE = "com.google.android.gms";
     private static final String GOOGLE_WALLET_APP = "com.google.android.apps.walletnfcrel";
     private static final String ROLE = "android.app.role.WALLET";
+    private static final String SHIZUKU = "moe.shizuku.privileged.api";
+    private static final long ATTACH_WAIT_MS = 3_000;
+    private static final long START_TIMEOUT_MS = 20_000; // wireless debugging start takes several seconds
     private static final String ANDROID_NS = "http://schemas.android.com/apk/res/android";
     private static final String[] ACTIONS = {
             "android.nfc.cardemulation.action.HOST_APDU_SERVICE",
@@ -130,8 +137,59 @@ final class Wallet {
 
     // ---- switching (blocking: call from a background thread) ----
 
+    /** Code of the Shizuku fork (View intents, Extras) that authorizes the START broadcast. */
+    static String authToken(Context c) {
+        return prefs(c).getString("auth", "");
+    }
+
+    static boolean canAutoStart(Context c) {
+        return !authToken(c).isEmpty();
+    }
+
+    static void setAuthToken(Context c, String token) {
+        prefs(c).edit().putString("auth", token.trim()).apply();
+    }
+
+    /** Asks the Shizuku fork to start itself. Only the thedjchi fork has this receiver, and it rejects a START without its code. */
+    static void requestStart(Context c) {
+        String token = authToken(c);
+        if (token.isEmpty()) return;
+        c.sendBroadcast(new Intent("moe.shizuku.privileged.api.START").setPackage(SHIZUKU).putExtra("auth", token));
+    }
+
+    /** Blocking. Starts Shizuku if needed and waits until the app can use it. */
+    static boolean startShizuku(Context c) {
+        boolean running = Shizuku.pingBinder();
+        if (!running) {
+            if (!canAutoStart(c)) return false;
+            requestStart(c);
+        }
+        // A running Shizuku only needs a moment to attach this process, a stopped one needs a full start.
+        try {
+            return Wait.until(Wallet::ready, running ? ATTACH_WAIT_MS : START_TIMEOUT_MS, 500,
+                    SystemClock::elapsedRealtime, Thread::sleep);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return false;
+        }
+    }
+
     static boolean ready() {
-        return Shizuku.pingBinder() && Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED;
+        if (!Shizuku.pingBinder()) return false;
+        try {
+            return Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED;
+        } catch (IllegalStateException e) { // seen in logcat: "Not an attached client" while Shizuku is up but has not attached this process yet
+            return false;
+        }
+    }
+
+    /** UI thread only. Confirms a switch with a haptic tick and a toast, or shows the error. */
+    static void feedback(Context c, String pkg, String error) {
+        c.getSystemService(Vibrator.class).vibrate(VibrationEffect.createPredefined(
+                error == null ? VibrationEffect.EFFECT_CLICK : VibrationEffect.EFFECT_DOUBLE_CLICK));
+        Toast.makeText(c, error == null
+                ? c.getString(R.string.toast_switched_fmt, name(c, pkg))
+                : c.getString(R.string.toast_failed_fmt, error), Toast.LENGTH_SHORT).show();
     }
 
     /** Package currently holding the WALLET role, or an empty string if none. */

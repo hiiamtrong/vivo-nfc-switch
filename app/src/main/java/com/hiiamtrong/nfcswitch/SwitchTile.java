@@ -1,13 +1,8 @@
 package com.hiiamtrong.nfcswitch;
 
-import android.app.PendingIntent;
-import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.widget.Toast;
@@ -23,34 +18,22 @@ public class SwitchTile extends TileService {
 
     @Override
     public void onClick() {
-        if (!Wallet.ready()) {
-            Intent i = new Intent(Settings.ACTION_NFC_PAYMENT_SETTINGS).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivityAndCollapse(PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_IMMUTABLE));
-            return;
-        }
-        render(getString(R.string.switching), Tile.STATE_UNAVAILABLE);
+        boolean off = !Wallet.ready();
+        render(getString(off && Wallet.canAutoStart(this) ? R.string.toast_starting_shizuku : R.string.switching), Tile.STATE_UNAVAILABLE);
         new Thread(() -> {
             String pkg = null;
             String error = null;
             try {
+                if (off && !Wallet.startShizuku(this)) throw new IllegalStateException(getString(R.string.toast_need_shizuku));
                 pkg = Wallet.toggle(this);
             } catch (Exception e) {
                 error = String.valueOf(e.getMessage());
             }
             String p = pkg;
             String err = error;
-            main.post(() -> feedback(p, err));
+            main.post(() -> Wallet.feedback(this, p, err)); // the control center shows no animation for a tile tap
             refresh();
         }).start();
-    }
-
-    /** The control center shows no animation for a tile tap, so confirm the result with a toast and a haptic tick. */
-    private void feedback(String pkg, String error) {
-        getSystemService(Vibrator.class).vibrate(VibrationEffect.createPredefined(
-                error == null ? VibrationEffect.EFFECT_CLICK : VibrationEffect.EFFECT_DOUBLE_CLICK));
-        Toast.makeText(this, error == null
-                ? getString(R.string.toast_switched_fmt, Wallet.name(this, pkg))
-                : getString(R.string.toast_failed_fmt, error), Toast.LENGTH_SHORT).show();
     }
 
     private void refresh() {

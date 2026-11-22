@@ -23,6 +23,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -54,6 +55,7 @@ public class MainActivity extends Activity {
     private Button bannerButton;
     private final TextView[] slotValue = new TextView[2];
     private TextView languageValue;
+    private TextView authValue;
     private TextView shortcutHint;
 
     private String current = "";
@@ -192,6 +194,18 @@ public class MainActivity extends Activity {
         langRow.addView(label("  ›", 18, TEXT_DIM, false));
         langRow.setOnClickListener(v -> pickLanguage());
         panel.addView(langRow);
+        authValue = label("", 15, TEXT_DIM, false);
+        authValue.setGravity(Gravity.END);
+        LinearLayout authRow = new LinearLayout(this);
+        authRow.setOrientation(LinearLayout.HORIZONTAL);
+        authRow.setGravity(Gravity.CENTER_VERTICAL);
+        authRow.setPadding(dp(16), dp(16), dp(16), dp(16));
+        authRow.setBackgroundResource(android.R.drawable.list_selector_background);
+        authRow.addView(label(getString(R.string.auth_title), 15, TEXT, false), new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+        authRow.addView(authValue);
+        authRow.addView(label("  ›", 18, TEXT_DIM, false));
+        authRow.setOnClickListener(v -> pickToken());
+        panel.addView(authRow);
         content.addView(panel);
         shortcutHint = label("", 13, TEXT_DIM, false);
         content.addView(shortcutHint, lp(4, 12, 4, 0));
@@ -235,6 +249,7 @@ public class MainActivity extends Activity {
             slotValue[i].setText(Wallet.name(this, pkg));
         }
         languageValue.setText(languageName(currentLanguage()));
+        authValue.setText(Wallet.authToken(this).isEmpty() ? R.string.auth_unset : R.string.auth_set);
         publishShortcuts();
     }
 
@@ -350,6 +365,25 @@ public class MainActivity extends Activity {
 
     private String languageName(String tag) {
         return getString(tag.equals("vi") ? R.string.lang_vi : tag.equals("en") ? R.string.lang_en : R.string.lang_system);
+    }
+
+    private void pickToken() {
+        EditText input = new EditText(this);
+        input.setSingleLine();
+        input.setText(Wallet.authToken(this));
+        FrameLayout box = new FrameLayout(this);
+        box.setPadding(dp(20), dp(8), dp(20), 0);
+        box.addView(input);
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.auth_title)
+                .setMessage(R.string.auth_hint)
+                .setView(box)
+                .setPositiveButton(R.string.save, (d, which) -> {
+                    Wallet.setAuthToken(this, input.getText().toString());
+                    bindCards();
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
     }
 
     private void pickLanguage() {

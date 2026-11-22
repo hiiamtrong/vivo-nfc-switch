@@ -3,8 +3,6 @@ package com.hiiamtrong.nfcswitch;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.widget.Toast;
 
 /** No-UI target of the shortcuts: switch the wallet, give a haptic tick, report with a toast, then close. */
@@ -19,18 +17,22 @@ public class SwitchActivity extends Activity {
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
-        if (!Wallet.ready()) {
-            Toast.makeText(this, R.string.toast_need_shizuku, Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
-            return;
-        }
         String action = String.valueOf(getIntent().getAction());
-        if (action.equals(ACTION_OPEN)) {
-            openCurrent();
-            return;
-        }
+        boolean off = !Wallet.ready();
+        if (off && Wallet.canAutoStart(this)) Toast.makeText(this, R.string.toast_starting_shizuku, Toast.LENGTH_SHORT).show();
         new Thread(() -> {
+            if (off && !Wallet.startShizuku(this)) {
+                runOnUiThread(() -> {
+                    Toast.makeText(this, R.string.toast_need_shizuku, Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(this, MainActivity.class));
+                    finish();
+                });
+                return;
+            }
+            if (action.equals(ACTION_OPEN)) {
+                openCurrent();
+                return;
+            }
             String pkg = null;
             String error = null;
             try {
@@ -43,11 +45,7 @@ public class SwitchActivity extends Activity {
             String p = pkg;
             String err = error;
             runOnUiThread(() -> {
-                getSystemService(Vibrator.class).vibrate(VibrationEffect.createPredefined(
-                        err == null ? VibrationEffect.EFFECT_CLICK : VibrationEffect.EFFECT_DOUBLE_CLICK));
-                Toast.makeText(this, err == null
-                        ? getString(R.string.toast_switched_fmt, Wallet.name(this, p))
-                        : getString(R.string.toast_failed_fmt, err), Toast.LENGTH_SHORT).show();
+                Wallet.feedback(this, p, err);
                 finish();
             });
         }).start();
@@ -55,22 +53,20 @@ public class SwitchActivity extends Activity {
 
     /** Opens the app of the wallet that is currently the default. */
     private void openCurrent() {
-        new Thread(() -> {
-            Intent open = null;
-            String error = null;
-            try {
-                open = Wallet.openIntent(this, Wallet.holder());
-                if (open == null) error = getString(R.string.none);
-            } catch (Exception e) {
-                error = String.valueOf(e.getMessage());
-            }
-            Intent i = open;
-            String err = error;
-            runOnUiThread(() -> {
-                if (i != null) startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                else Toast.makeText(this, getString(R.string.toast_failed_fmt, err), Toast.LENGTH_SHORT).show();
-                finish();
-            });
-        }).start();
+        Intent open = null;
+        String error = null;
+        try {
+            open = Wallet.openIntent(this, Wallet.holder());
+            if (open == null) error = getString(R.string.none);
+        } catch (Exception e) {
+            error = String.valueOf(e.getMessage());
+        }
+        Intent i = open;
+        String err = error;
+        runOnUiThread(() -> {
+            if (i != null) startActivity(i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            else Toast.makeText(this, getString(R.string.toast_failed_fmt, err), Toast.LENGTH_SHORT).show();
+            finish();
+        });
     }
 }
